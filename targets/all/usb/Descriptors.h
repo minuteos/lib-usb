@@ -449,7 +449,7 @@ template<size_t n> PACKED_UNALIGNED_STRUCT _StringDescriptor
 #define USB_STRING_TABLE_START(...) \
 const struct UNIQUE(UsbStringTable) { \
     static constexpr int __count0 = __COUNTER__; \
-    __attribute__((aligned(4))) const ::usb::_StringDescriptor<1> _languages = { 2, ::usb::DescriptorType::String, { __VA_ARGS__ } };
+    __attribute__((aligned(4))) const ::usb::_StringDescriptor<std::tuple_size<decltype(std::make_tuple(__VA_ARGS__))>::value + 1> _languages = { 2 + std::tuple_size<decltype(std::make_tuple(__VA_ARGS__))>::value * 2, ::usb::DescriptorType::String, { __VA_ARGS__, 0 } };
 
 #define USB_STRING(name, value) \
     static constexpr uint8_t name = __COUNTER__ - __count0; \
