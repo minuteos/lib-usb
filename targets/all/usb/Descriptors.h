@@ -161,6 +161,9 @@ enum struct SubClass : uint8_t
     // MSC Subclasses follow
     MscScsi = 6,    //!< SCSI transparent command set
 
+    // Application-Specific Subclasses follow
+    AppDfu = 1,     //!< Device Firmware Upgrade
+
     Vendor = 0xFF,  //!< Vendor-specific subclass
 };
 
@@ -181,6 +184,9 @@ enum struct Protocol : uint8_t
 
     // MSC Protocols follow
     MscBulkOnly = 80,   //!< Bulk-Only Transport
+
+    // DFU Protocols follow
+    DfuRuntime = 1,     //!< Runtime mode
 
     Vendor = 0xFF,  //!< Vendor-specific protocol
 };

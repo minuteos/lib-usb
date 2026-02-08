@@ -50,6 +50,10 @@ struct SetupPacket
         StdGetConfiguration = 8,
         StdSetConfiguration = 9,
 
+        ClassDfuDetach = 0,
+        ClassDfuGetStatus = 3,
+        ClassDfuGetState = 5,
+
         ClassMscBOMReset = 0xFF,
         ClassMscGetMaxLun = 0xFE,
     };
